@@ -1,48 +1,82 @@
-# React Native Restaurant App
+# Restaurant App (React Native)
 
-### App features.
+An Expo / React Native app for finding restaurants by food category or search term, using the Yelp Fusion API.
 
-- View available food categories
-- view Category items
-- Search for categories
-- View Item details
+![React Native](https://img.shields.io/badge/React_Native-0.71-61DAFB?logo=react&logoColor=black)
+![Expo](https://img.shields.io/badge/Expo-SDK_48-000020?logo=expo&logoColor=white)
+![Yelp API](https://img.shields.io/badge/data-Yelp_Fusion_API-D32323?logo=yelp&logoColor=white)
 
-#### Main
+## Overview
 
-![EXPO-REST!](readme-res/main.jpg)
+The app has a single home screen. It shows a header, a search box, a horizontal row of food categories (Burger, Cake, Pasta, Pizza, Smoothies, Steak) and a list of matching restaurants. Picking a category or submitting a search term queries Yelp's `/businesses/search` endpoint (15 results, location `Ottawa`) through a custom `useRestaurants` hook built on axios.
 
-#### Search
+## Features
 
-![EXPO-REST2!](readme-res/search.jpg)
+- View the available food categories and tap one to load matching restaurants.
+- Search for any restaurant or food term.
+- Restaurant cards with the photo, name, rating and price level.
+- A loading indicator and an error message while the request runs or if it fails.
 
-## Getting Started with create-expo-app
+## Screenshots
 
-This project was bootstrapped with [create-expo-app](https://docs.expo.dev/tutorial/create-your-first-app/).
+| Main | Search |
+| ---- | ------ |
+| ![Main screen](readme-res/main.jpg) | ![Search screen](readme-res/search.jpg) |
 
-### Available Scripts
+## Tech stack
 
-In the project directory, you can run:
+- React Native 0.71, Expo SDK 48 (with web support through `react-native-web`)
+- axios
+- `@expo/vector-icons` (FontAwesome)
+- Yelp Fusion API
 
-#### `npm start`
+## Project structure
 
-Runs the app in the development mode.\
-So this will run expo start and is request to view app in your browser, emulator ar mobile device.
+```
+restaurant-app/
+├── App.js                  # renders HomeScreen
+├── app.json                # Expo config
+├── assets/                 # app icon, splash, favicon
+├── readme-res/             # screenshots
+└── src/
+    ├── api/yelp.js         # axios instance for the Yelp API
+    ├── hooks/useRestaurants.js
+    ├── components/         # Header, Search, Categories, CategoryItem, Restaurants, RestaurentItem
+    ├── data/db.js          # category list and icons
+    ├── assets/images/      # category images
+    └── screens/HomeScreen.js
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting started
 
-#### `npm run android`
+### Prerequisites
 
-This will run "expo start --android",
+- Node.js 16 or later and npm (or Yarn)
+- The Expo Go app on a device, or an Android/iOS emulator
+- A Yelp Fusion API key from https://www.yelp.com/developers
 
-#### `npm run ios`
+### Install
 
-This will run "expo start --ios"
+```bash
+git clone https://github.com/VamsiKrishnaThota03/restaurant-app.git
+cd restaurant-app
+npm install
+```
 
-#### `npm run web`
+### Configure
 
-This will run "expo start --web",
+Set your Yelp key in `src/api/yelp.js`. For anything beyond local testing, load it from config instead of hard-coding it:
 
-#### `npm run eject`
+| Setting        | File              | Example placeholder         |
+| -------------- | ----------------- | --------------------------- |
+| `YELP_API_KEY` | `src/api/yelp.js` | `Bearer <your-yelp-api-key>`|
+| Search location| `src/hooks/useRestaurants.js` | `Ottawa`        |
 
-This will run"expo eject"
+### Run
+
+| Command           | Description                                 |
+| ----------------- | ------------------------------------------- |
+| `npm start`       | Start the Expo dev server (`expo start`)    |
+| `npm run android` | Open on an Android emulator or device       |
+| `npm run ios`     | Open on the iOS simulator                   |
+| `npm run web`     | Run in the browser                          |
