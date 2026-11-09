@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-restaurents-app",
-    "slug": "react-native-restaurents-app",
+    "name": "Restaurant Finder",
+    "slug": "restaurant-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#fff7f0"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,11 +23,14 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#f2700f"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "name": "Restaurant Finder",
+      "themeColor": "#f2700f",
+      "description": "Find restaurants by food category or search term, powered by the Yelp Fusion API."
     }
   }
 }
