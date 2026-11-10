@@ -64,7 +64,7 @@ restaurant-app/
 ### Install
 
 ```bash
-git clone https://github.com/VamsiKrishnaThota03/restaurant-app.git
+git clone https://github.com/VamsiKrishnaThota03/restaurant-finder.git
 cd restaurant-app
 npm install
 cp .env.example .env   # then set YELP_API_KEY
